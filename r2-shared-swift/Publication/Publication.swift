@@ -21,6 +21,8 @@ import Foundation
 ///   - shortcuts to various publication resources to be used by the Streamer and Navigator
 ///   - additional metadata not part of the RWPM
 public class Publication: WebPublication, Loggable {
+    
+    public var contentLengthInfo: ContentLengthInfo = ContentLengthInfo(contentLengthTuples: [])
 
     /// Format of the publication, if specified.
     public var format: Format = .unknown
