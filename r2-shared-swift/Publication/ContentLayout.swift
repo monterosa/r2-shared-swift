@@ -43,15 +43,19 @@ public enum ContentLayoutStyle: String {
             return language
         }()
         
-        switch language.lowercased() {
-        case "ar", "fa", "he":
-            self = .rtl
-        // Any Chinese: zh-*-*
-        case "zh", "ja", "ko":
-            self = (readingProgression == .rtl) ? .cjkVertical : .cjkHorizontal
-        default:
-            self = (readingProgression == .rtl) ? .rtl : .ltr
-        }
+        self = .ltr
+                
+// Commented due to weird bug with messing across multiple language inside books metadata
+
+//        switch language.lowercased() {
+//        case "ar", "fa", "he":
+//            self = .rtl
+//        // Any Chinese: zh-*-*
+//        case "zh", "ja", "ko":
+//            self = (readingProgression == .rtl) ? .cjkVertical : .cjkHorizontal
+//        default:
+//            self = (readingProgression == .rtl) ? .rtl : .ltr
+//        }
     }
     
     public var readingProgression: ReadingProgression {
